@@ -1,0 +1,19 @@
+.dialog-outter-div {
+  border-radius: 20px;
+}
+
+.okey-button {
+  padding: 10px 8px;
+  border: 1px solid gainsboro;
+  background: white;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  border-radius: 12px;
+  min-width: 70px;
+  color: var(--primary-color);
+}
+
+.okey-button:hover {
+  background-color: #3f51b51a;
+}

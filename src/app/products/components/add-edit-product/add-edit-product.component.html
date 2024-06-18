@@ -1,0 +1,45 @@
+<app-header [headerDetails]="headerDetail" (methodClicked)="headerClick($event)"></app-header>
+<!-- form for product details -->
+<div class="outter-div">
+  <div *ngIf="productForm" [formGroup]="productForm" fxLayout="column">
+    <div fxLayout="row" fxLayoutGap="5%">
+      <div fxFlex="100%">
+        <mat-form-field appearance="outline" fxFlex="100%">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name">
+          <mat-error *ngIf="productForm?.get('name')?.hasError('required')">
+            Product name is required.
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div fxFlex="100%">
+        <mat-form-field appearance="outline" fxFlex="100%">
+          <mat-label>Price</mat-label>
+          <input matInput formControlName="price">
+          <mat-error *ngIf="productForm?.get('price')?.hasError('required')">
+            Product price is required.
+          </mat-error>
+          <mat-error *ngIf="productForm?.get('price')?.hasError('min')">
+            Price should be greater than 0.
+          </mat-error>
+          <mat-error
+            *ngIf="!productForm?.get('price')?.hasError('pattern') && productForm?.get('price')?.hasError('maxlength')">
+            Price should less than 10 digits.
+          </mat-error>
+          <mat-error
+            *ngIf="productForm?.get('price')?.hasError('pattern') && productForm?.get('price')?.hasError('maxlength')">
+            Price accept only numbers.
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayoutGap="5%" fxLayoutGap.lt-md="0">
+      <div fxFlex="100%">
+        <mat-form-field appearance="outline" fxFlex="100%">
+          <mat-label>Description</mat-label>
+          <textarea matInput type="text" formControlName="description"></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,86 @@
+.outter-div {
+  padding: 20px;
+
+  div {
+    padding: 20px 0;
+  }
+}
+
+.product-list-card {
+  padding: 10px;
+  border-radius: 20px;
+  background-color: aqua;
+  height: 300px;
+  width: 20%;
+  margin-bottom: 10px;
+}
+
+/* table header color change */
+th {
+  background-color: var(--primary-color) !important;
+  color: ghostwhite;
+}
+
+/* table column id style */
+.mat-column-id {
+  width: 32px;
+  border-right: 1px solid currentColor;
+  padding-right: 24px;
+  text-align: center;
+}
+
+/* table column action style */
+.mat-column-action {
+  text-align: center;
+  max-width: 64px;
+}
+
+/* table column price and name style */
+.mat-column-price,
+.mat-column-name {
+  max-width: 64px;
+}
+
+/* No record found column */
+.mat-mdc-no-data-row .mat-cell {
+  text-align: center;
+  color: black;
+  border-bottom: 2px solid gainsboro;
+  padding: 15px;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+
+.mat-sort-header-arrow {
+  color: ghostwhite !important;
+}
+
+.mat-mdc-row {
+  background-color: white;
+}
+
+.mat-mdc-row:nth-child(even) {
+  background-color: gainsboro;
+}
+
+.delete-icon,
+.edit-icon,
+.view-icon {
+  cursor: pointer;
+}
+
+.delete-icon {
+  color: red;
+}
+
+.edit-icon {
+  color: green;
+}
+
+.view-icon {
+  color: blue;
+}
+
+.search-box {
+  padding-left: 20px;
+}

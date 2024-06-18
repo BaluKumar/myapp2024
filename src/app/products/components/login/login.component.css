@@ -1,0 +1,11 @@
+.loginstyle {
+  width: 60dvh;
+  margin: 50px;
+  padding: 50px;
+  height: fit-content;
+}
+
+.outercontainer {
+  display: flex;
+  justify-content: center;
+}

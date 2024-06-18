@@ -1,0 +1,29 @@
+<div class="outercontainer">
+  <form [formGroup]="loginForm">
+    <div class="mat-elevation-z8 loginstyle" fxLayout="column">
+      <div fxLayout="column" fxFlex="50%">
+        <mat-label>Name</mat-label>
+        <mat-form-field appearance="outline">
+          <input matInput type="email" placeholder="email" formControlName="email">
+          <mat-error *ngIf="loginForm?.get('email')?.hasError('required')">
+            email is required.
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div fxLayout="column" fxFlex="50%">
+        <mat-label>password</mat-label>
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="password" formControlName="password" [type]="hide ? 'password' : 'text'">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="loginForm?.get('password')?.hasError('required')">
+            password is required.
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <button mat-raised-button color="primary" (click)="onSubmit()" data-control="submit-button">Submit</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,35 @@
+<div *ngIf="headerDetails?.title" class="header-outter-div" fxLayout="row" fxLayoutAlign="space-between center">
+  <!-- page title -->
+  <span fxLayout="column" fxLayoutAlign="space-between start">
+    <span class="header-title">{{headerDetails?.title}}</span>
+    <span *ngIf="headerDetails?.desc" class="header-desc">{{headerDetails?.desc}}</span>
+  </span>
+  <!-- multiple buttons -->
+  <div *ngIf="headerDetails?.buttonList; else singleButton" class="multiple-button-div" fxLayout="row wrap"
+    fxLayoutGap="10px">
+    <div *ngFor="let item of headerDetails?.buttonList">
+      <button appZenButton color="{{item?.color ? item?.color :'blue'}}"
+        [backgroundColor]="item?.backgroundColor ? item?.backgroundColor : 'white'" (click)="buttonClick(item)">
+        <span fxLayout="row" fxLayoutAlign="center center">
+          <ng-container *ngIf="item?.icon">
+            <span class="material-symbols-outlined"> {{item?.icon}} </span>
+          </ng-container>
+          <span> {{item?.text}} </span>
+        </span>
+      </button>
+    </div>
+  </div>
+  <!-- single button -->
+  <ng-template #singleButton>
+    <button *ngIf="headerDetails?.button" appZenButton (click)="buttonClick(headerDetails?.button)"
+      [backgroundColor]="headerDetails?.button?.backgroundColor ? headerDetails?.button?.backgroundColor : 'white'"
+      [color]="headerDetails?.button?.color ? headerDetails?.button?.color :'blue'">
+      <span fxLayout="row" fxLayoutAlign="center center">
+        <span *ngIf="headerDetails?.button?.icon" class="material-symbols-outlined">
+          {{headerDetails?.button?.icon}}
+        </span>
+        <span> {{headerDetails?.button?.text}} </span>
+      </span>
+    </button>
+  </ng-template>
+</div>
